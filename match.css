@@ -3,6 +3,8 @@
   padding: 60px;
 }
 
-.fraction.highlight{
+.fraction.highlightBorder{
   border-style: solid;
+  border-color: black;
+  border-width: 5px;
 }
