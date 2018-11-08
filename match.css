@@ -1,0 +1,8 @@
+.question{
+  display: inline-table;
+  padding: 60px;
+}
+
+.fraction.highlight{
+  border-style: solid;
+}
