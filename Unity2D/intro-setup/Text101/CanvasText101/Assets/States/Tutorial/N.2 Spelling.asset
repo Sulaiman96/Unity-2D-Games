@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37ce7a58611441fea9e211fb9ecaef5, type: 3}
+  m_Name: N.2 Spelling
+  m_EditorClassIdentifier: 
+  storyText: 'N.2 Spelling
+
+    Mr Swan wants you to have a look at the word below and tell him which one is spelt
+    correctly.
+
+
+    1. Aple    2. Appe    3. Apple   4. Appl
+
+
+'
+  nextStates:
+  - {fileID: 11400000, guid: f9a27a562c46c46cfb97230b24f49621, type: 2}
+  - {fileID: 11400000, guid: 313a429bc42694a729eef8a29c0ae141, type: 2}

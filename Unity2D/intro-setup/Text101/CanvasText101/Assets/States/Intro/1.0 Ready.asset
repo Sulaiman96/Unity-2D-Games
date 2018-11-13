@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37ce7a58611441fea9e211fb9ecaef5, type: 3}
+  m_Name: 1.0 Ready
+  m_EditorClassIdentifier: 
+  storyText: 'Welcome, Mr Swan wants your help in his adventure of helping the little
+    ones with their english.
+
+
+    Are you good enough to help out?
+
+
+    1. Yes, lets go
+
+
+    2. No, I need some practice.'
+  nextStates:
+  - {fileID: 11400000, guid: 27b4593df7a4542dfa50a5b318236871, type: 2}
+  - {fileID: 11400000, guid: 3488896d104874bf3b728b1b761e8bb7, type: 2}

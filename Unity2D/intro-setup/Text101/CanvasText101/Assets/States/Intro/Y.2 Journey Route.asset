@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37ce7a58611441fea9e211fb9ecaef5, type: 3}
+  m_Name: Y.2 Journey Route
+  m_EditorClassIdentifier: 
+  storyText: "Mr. Swan needs your help deciding where you both should go next, below
+    are some of the options; \n\nWhenever you are ready, let's go!\n\n1. Through the
+    woods  3. To the mountains\n\n2. Take the bus to the city  4. To the beach"
+  nextStates:
+  - {fileID: 11400000, guid: 22c6581940e87479cb8f0f4d1ecedb7b, type: 2}
+  - {fileID: 11400000, guid: a88dd346451ba44bb9c4ad48c293ff02, type: 2}
+  - {fileID: 11400000, guid: 6e7bc3ec4ab174de2b7da2d197583ad2, type: 2}
+  - {fileID: 11400000, guid: 57565a9dfff3449259c4c3597673133f, type: 2}

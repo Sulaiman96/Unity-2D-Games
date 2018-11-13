@@ -1,0 +1,7 @@
+﻿Welcome, Mr Swan wants your help in his adventure of helping the little ones with their english.
+
+Are you good enough to help out?
+
+If you think you are, Mr Swan will test you out. Otherwise, try to practice a little before the test.
+1. Yes, test me out.
+2. No, I need some practice.
