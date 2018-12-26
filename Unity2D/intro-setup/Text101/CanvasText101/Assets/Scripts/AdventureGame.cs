@@ -29,6 +29,14 @@ public class AdventureGame : MonoBehaviour
     private void ManageStates()
     {
         var nextStates = state.getNextStates(); //keeps track of the next state.
+        for (int i = 0; i < nextStates.Length; i++){
+            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+            {
+                state = nextStates[i];
+            }
+        }
+
+       /*
         if(Input.GetKeyDown(KeyCode.Alpha1)){
             state = nextStates[0];
         } else if (Input.GetKeyDown(KeyCode.Alpha2)){
@@ -41,6 +49,8 @@ public class AdventureGame : MonoBehaviour
         {
             Debug.Log("Please press number 1-4");
         }
+        */
         textComponent.text = state.getStateStory();
+
     }
 }
