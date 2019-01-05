@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4103421297462698}
   - component: {fileID: 212669018216791376}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4984241091817838}
   - component: {fileID: 212524907567473184}
-  m_Layer: 9
+  - component: {fileID: 50895444247634788}
+  m_Layer: 10
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +69,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4138774214871712}
   - component: {fileID: 212576420467935566}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Leg (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4884517319011620}
   - component: {fileID: 212598491573725850}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4211839821758948}
   - component: {fileID: 95400778410128870}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Main Guy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,6 +191,26 @@ Transform:
   m_Father: {fileID: 4211839821758948}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50895444247634788
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1644773795369032}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 3
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!95 &95400778410128870
 Animator:
   serializedVersion: 3

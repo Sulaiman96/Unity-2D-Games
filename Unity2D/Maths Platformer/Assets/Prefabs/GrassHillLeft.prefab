@@ -20,7 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4369936631183094}
   - component: {fileID: 212009100277236074}
-  m_Layer: 0
+  - component: {fileID: 68621359499058818}
+  m_Layer: 9
   m_Name: GrassHillLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,6 +41,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &68621359499058818
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1814950934419838}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.5082121, y: -0.66106236}
+  - {x: 0.4917879, y: 0.33669028}
 --- !u!212 &212009100277236074
 SpriteRenderer:
   m_ObjectHideFlags: 1
