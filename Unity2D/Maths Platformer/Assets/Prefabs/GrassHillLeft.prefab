@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1814950934419838}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.96, y: 0.002, z: 0.9999998}
+  m_LocalPosition: {x: -18.5, y: 0.0020000935, z: 0.9999998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -57,7 +57,7 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -0.5082121, y: -0.66106236}
-  - {x: 0.4917879, y: 0.33669028}
+  - {x: 0.5090828, y: 0.3020998}
 --- !u!212 &212009100277236074
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -90,8 +90,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 244318695
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e9be7925c5e3f814899789b692c1e60d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

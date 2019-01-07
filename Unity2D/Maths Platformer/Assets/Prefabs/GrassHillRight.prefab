@@ -20,7 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4922506178826694}
   - component: {fileID: 212766489612269670}
-  m_Layer: 0
+  - component: {fileID: 68814584997370838}
+  m_Layer: 9
   m_Name: GrassHillRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,12 +35,29 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1258234275567292}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.4692373, y: 2.5009456, z: 0.9999998}
+  m_LocalPosition: {x: -13.516001, y: -0.0009999275, z: 0.9999998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &68814584997370838
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1258234275567292}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.5191889, y: 0.3357947}
+  - {x: 0.49999905, y: -0.6715889}
 --- !u!212 &212766489612269670
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -72,8 +90,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 244318695
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 649edd28af01b884cac8f02eec4f3534, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
