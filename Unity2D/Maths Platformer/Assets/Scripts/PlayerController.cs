@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public float speed = 20f;
-
     //movement variables
+    public float speed = 20f;
     private float moveInput;
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
