@@ -8,8 +8,6 @@ using TMPro;
 
 public class GameController : MonoBehaviour
 {
-
-
     public TMP_Text questionDisplayText;
     public TMP_Text scoreDisplayText;
     public TMP_Text timeRemainingDisplayText;
@@ -21,7 +19,6 @@ public class GameController : MonoBehaviour
     private DataController dataController;
     private RoundData currentRoundData;
     private QuestionData[] questionPool;
-
     private bool isRoundActive;
     private float timeRemaining;
     private int questionIndex;
@@ -42,7 +39,6 @@ public class GameController : MonoBehaviour
 
         ShowQuestion();
         isRoundActive = true;
-
     }
 
     void Update()
@@ -57,7 +53,6 @@ public class GameController : MonoBehaviour
             }
         }
     }
-
 
     private void UpdateTimeRemainingDisplay()
     {

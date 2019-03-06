@@ -258,6 +258,30 @@ MonoBehaviour:
         isCorrect: 0
       - answerText: 10
         isCorrect: 0
+    - questionText: 'What is 17-8 ? '
+      answers:
+      - answerText: 9
+        isCorrect: 1
+      - answerText: 8
+        isCorrect: 0
+      - answerText: 6
+        isCorrect: 0
+    - questionText: 'Are you having fun ? '
+      answers:
+      - answerText: Yes
+        isCorrect: 1
+      - answerText: No
+        isCorrect: 1
+    - questionText: What is 7 x 9 ?
+      answers:
+      - answerText: 54
+        isCorrect: 0
+      - answerText: 63
+        isCorrect: 1
+      - answerText: 67
+        isCorrect: 0
+      - answerText: 70
+        isCorrect: 0
 --- !u!4 &1151795097
 Transform:
   m_ObjectHideFlags: 0
