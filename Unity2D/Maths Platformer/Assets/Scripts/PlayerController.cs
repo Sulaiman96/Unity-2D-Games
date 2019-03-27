@@ -15,17 +15,20 @@ public class PlayerController : MonoBehaviour {
     public float jumpForce = 20f;
     private bool isGrounded;
     public Transform groundCheck;
+    public GameObject respawnPoint;
     private int extraJump;
     public int extraJumpsValue;
     private float distance = 2f;
 
     //animation variable
     public Animator animator;
+    private GameController gameController;
 
 	// Use this for initialization
 	void Start () {
         extraJump = extraJumpsValue;
         rb = GetComponent<Rigidbody2D>();
+        gameController = FindObjectOfType<GameController>();
 	}
 	
 	// Update is called once per frame
@@ -47,6 +50,36 @@ public class PlayerController : MonoBehaviour {
        //Debug.DrawLine(groundCheck.position, groundCheck.position + (groundCheck.right * distance), Color.green);
 	}
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "MovingPlatform")
+        {
+            this.transform.parent = collision.transform;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "MovingPlatform")
+        {
+            this.transform.parent = null;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Coin")
+        {
+            collision.gameObject.SetActive(false);
+            gameController.Pickup();
+
+        }
+
+        if(collision.gameObject.tag == "Kill")
+        {
+            this.transform.position = respawnPoint.transform.position;
+        }
+    }
     private void FixedUpdate(){
         isGrounded = Physics2D.Raycast(groundCheck.position, groundCheck.right, distance);
         moveInput = Input.GetAxis("Horizontal");

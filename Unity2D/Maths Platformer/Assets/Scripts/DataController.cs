@@ -6,21 +6,30 @@ using UnityEngine.SceneManagement;
 public class DataController : MonoBehaviour
 {
     [SerializeField] RoundData[] allRoundData; //can extend for multiple rounds.
-
+    public GameObject instructionPanel;
+    public GameObject menuPanel;
     // Start is called before the first frame update
-    void Start()
+    public void PlayGame()
     {
         DontDestroyOnLoad(gameObject);
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("Main Map");
     }
 
     public RoundData GetCurrentRoundData() {
         return allRoundData[0];
     }
 
-    // Update is called once per frame
-    void Update()
+    public void InstructionPage()
     {
-        
+        menuPanel.SetActive(false);
+        instructionPanel.SetActive(true);
     }
+
+    public void goingBack()
+    {
+        menuPanel.SetActive(true);
+        instructionPanel.SetActive(false);
+    }
+
+
 }
