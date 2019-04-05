@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6622097804651461193}
   - component: {fileID: 3774392530071871564}
   - component: {fileID: 4862865494983141830}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ SpriteShapeRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 9
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 2800000, guid: 9a1dbd66572d13f43911ffa278d5a4c9, type: 3}
@@ -169,7 +169,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -6.6108484, y: -0.088863134}
+  m_Offset: {x: -6.6108484, y: -0.30604672}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -180,5 +180,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 19.56981, y: 6.329746}
+  m_Size: {x: 19.56981, y: 5.8953786}
   m_EdgeRadius: 0

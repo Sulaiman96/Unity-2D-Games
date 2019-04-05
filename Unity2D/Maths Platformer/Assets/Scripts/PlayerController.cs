@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour {
 
     //jumping variables
     public float jumpForce = 20f;
+    public float checkRadius;
+    public LayerMask whatIsGround;
     private bool isGrounded;
     public Transform groundCheck;
     public GameObject respawnPoint;
@@ -29,25 +31,26 @@ public class PlayerController : MonoBehaviour {
         extraJump = extraJumpsValue;
         rb = GetComponent<Rigidbody2D>();
         gameController = FindObjectOfType<GameController>();
+        //animator.SetBool("isGrounded", true);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (isGrounded == true){ //everytime the player touches the ground, his number of jumps is reset.
             extraJump = extraJumpsValue;
-            OnLandEvent();
+            //OnLandEvent();
         }
 
         if (Input.GetKeyUp(KeyCode.Space) && extraJump > 0) { //checks for w or spacebar and how many jumps.
-            animator.SetBool("isGround", false);
+            animator.SetTrigger("Jump");
             rb.velocity = Vector2.up * jumpForce;
             extraJump--;
         }else if(Input.GetKeyUp(KeyCode.Space) && extraJump == 0 && isGrounded == true){
-            animator.SetBool("isGround", false);
+            animator.SetTrigger("Jump");
             rb.velocity = Vector2.up * jumpForce;
         }
 
-       //Debug.DrawLine(groundCheck.position, groundCheck.position + (groundCheck.right * distance), Color.green);
+       Debug.DrawLine(groundCheck.position, groundCheck.position + (groundCheck.right * distance), Color.green);
 	}
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -81,7 +84,8 @@ public class PlayerController : MonoBehaviour {
         }
     }
     private void FixedUpdate(){
-        isGrounded = Physics2D.Raycast(groundCheck.position, groundCheck.right, distance);
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+        //isGrounded = Physics2D.Raycast(groundCheck.position, groundCheck.right, distance);
         moveInput = Input.GetAxis("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(moveInput));  //sets the animator variables for run and jump so the correct animations play.
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);  //moves player horizontally. 
@@ -92,11 +96,11 @@ public class PlayerController : MonoBehaviour {
             Flip();
         }
     }
-
+    /*
     public void OnLandEvent(){
-        animator.SetBool("isGround", true);
+        animator.SetBool("isGrounded", true);
     }
-
+    */
     //This method keeps the scale (size) of the character and multiplies the x co-ordinates by -1 which flips the character. 
     void Flip(){
         facingRight = !facingRight;
