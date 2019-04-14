@@ -26,12 +26,18 @@ public class PlayerController : MonoBehaviour {
     public Animator animator;
     private GameController gameController;
 
+    //Audio
+    public AudioClip CoinSound;
+    public AudioClip DeathSound;
+    public AudioClip Timer;
+    AudioSource audio;
+
 	// Use this for initialization
 	void Start () {
         extraJump = extraJumpsValue;
         rb = GetComponent<Rigidbody2D>();
         gameController = FindObjectOfType<GameController>();
-        //animator.SetBool("isGrounded", true);
+        audio = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -71,8 +77,16 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Coin")
+        if(collision.gameObject.tag == "Timer")
         {
+            audio.clip = Timer;
+            audio.Play();
+        }
+
+        if (collision.gameObject.tag == "Coin")
+        {
+            audio.clip = CoinSound;
+            audio.Play();
             collision.gameObject.SetActive(false);
             gameController.Pickup();
 
@@ -80,6 +94,8 @@ public class PlayerController : MonoBehaviour {
 
         if(collision.gameObject.tag == "Kill")
         {
+            audio.clip = DeathSound;
+            audio.Play();
             this.transform.position = respawnPoint.transform.position;
         }
     }
@@ -96,12 +112,17 @@ public class PlayerController : MonoBehaviour {
             Flip();
         }
     }
-    /*
-    public void OnLandEvent(){
-        animator.SetBool("isGrounded", true);
+
+    public void ChangeSpawn(Transform newRespawn)
+    {
+        respawnPoint.transform.position = newRespawn.transform.position;
     }
-    */
-    //This method keeps the scale (size) of the character and multiplies the x co-ordinates by -1 which flips the character. 
+
+    public void StopTimer()
+    {
+        audio.Stop();
+    }
+
     void Flip(){
         facingRight = !facingRight;
         Vector3 Scaler = transform.localScale;

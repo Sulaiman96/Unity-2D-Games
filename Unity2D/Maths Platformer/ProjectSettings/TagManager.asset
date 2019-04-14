@@ -7,6 +7,7 @@ TagManager:
   - Coin
   - MovingPlatform
   - Kill
+  - Timer
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - UI
   - 
   - 
-  - Ground
-  - 
+  - Background
+  - PLATFORMS
   - 
   - 
   - 

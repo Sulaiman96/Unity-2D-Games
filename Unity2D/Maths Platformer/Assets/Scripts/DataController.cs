@@ -8,10 +8,11 @@ public class DataController : MonoBehaviour
     [SerializeField] RoundData[] allRoundData; //can extend for multiple rounds.
     public GameObject instructionPanel;
     public GameObject menuPanel;
+
     // Start is called before the first frame update
+
     public void PlayGame()
     {
-        DontDestroyOnLoad(gameObject);
         SceneManager.LoadScene("Main Map");
     }
 

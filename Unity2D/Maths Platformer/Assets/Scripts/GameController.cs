@@ -20,9 +20,15 @@ public class GameController : MonoBehaviour
     public GameObject wallBlock;
     public GameObject questionTrigger;
     public int amountOfCoins = 25;
+    public AudioClip RoundWin;
+    public AudioClip RightAnswer;
+    public AudioClip RoundLost;
 
+    private ScoreTracker scoreTracker;
+    private PlayerController player;
+    private AudioSource audio;
     private DataController dataController;
-    private RoundData currentRoundData;
+    private RoundData allRoundData;
     private QuestionData[] questionPool;
     private bool isRoundActive;
     private float timeRemaining;
@@ -34,11 +40,12 @@ public class GameController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        scoreTracker = FindObjectOfType<ScoreTracker>();
+        player = FindObjectOfType<PlayerController>();
+        audio = GetComponent<AudioSource>();
         dataController = FindObjectOfType<DataController>();
-        currentRoundData = dataController.GetCurrentRoundData();
-        questionPool = currentRoundData.questions;
-        timeRemaining = currentRoundData.timeLimitInSeconds;
         coinCount = 0;
+        questionIndex = 0;
     }
 
     void Update()
@@ -55,24 +62,30 @@ public class GameController : MonoBehaviour
             }
         }
     }
+
     #region Public Functions
     public void StartTheGame()     {
         //Enable the GUI
         scoreDisplayText.GetComponent<TextMeshProUGUI>().enabled = true;
         timeRemainingDisplayText.GetComponent<TextMeshProUGUI>().enabled = true;
         questionDisplay.SetActive(true);
-         //Reset the score and its text         playerScore = 0;         scoreDisplayText.text = "Questions Correctly Answered: " + playerScore.ToString();         //Reset the question index so we start from the start again         questionIndex = 0;         currentRoundData = dataController.GetCurrentRoundData();         questionPool = currentRoundData.questions;         ShowQuestion();          //reset the time remaining and start the counter.         timeRemaining = currentRoundData.timeLimitInSeconds;         UpdateTimeRemainingDisplay();         isRoundActive = true;     }
+         //Reset the score and its text         playerScore = 0;         scoreDisplayText.text = "Questions Correctly Answered: " + playerScore.ToString();
+         //Reset the question index so we start from the start again
+        questionIndex = 0;         allRoundData = dataController.GetCurrentRoundData();         questionPool = allRoundData.questions;         ShowQuestion();          //reset the time remaining and start the counter.         timeRemaining = allRoundData.timeLimitInSeconds;         UpdateTimeRemainingDisplay();         isRoundActive = true;     }
 
     public void SetCountText()
     {         coinText.text = ": " + coinCount.ToString();         if (coinCount >= amountOfCoins)
-        {             Debug.Log("You win the game");         }     }      public void Pickup()
+        {             //Debug.Log("You win the game");         }     }      public void Pickup()
     {         coinCount++;     }
     //checks whether the answer that is pressed is correct or not.
     public void AnswerButtonClicked(bool isCorrect)
     {
         if (isCorrect)
         {
-            playerScore += currentRoundData.pointsAddedForCorrectAnswer;
+            audio.clip = RightAnswer;
+            audio.Play();
+            scoreTracker.AddToTotalAnswers();
+            playerScore += allRoundData.pointsAddedForCorrectAnswer;
             scoreDisplayText.text = "Questions Correctly Answered: " + playerScore.ToString();
         }
         if (questionPool.Length > questionIndex + 1)
@@ -89,18 +102,31 @@ public class GameController : MonoBehaviour
     public void EndRound()
     {
         isRoundActive = false;
-
+        player.StopTimer();
+        scoreTracker.AddToTotalQuestion();
         questionDisplay.SetActive(false);
         roundEndDisplay.SetActive(true);
         //Change this to display a panel depending on the answer.
+
         if (playerScore >= 3) //give them the ticket.
         {
             wallBlock.SetActive(false);
         }
         else
         {
+            audio.clip = RoundLost;
+            audio.Play();
             questionTrigger.SetActive(true);
         }
+    }
+
+    public void RoundWon()
+    {
+        //questionIndex++;
+        audio.clip = RoundWin;
+        audio.Play();
+        scoreTracker.PrintValues();
+        StartCoroutine(LoadLevelAfterDelay(2f));
     }
 
     public void ReturnToMenu()
@@ -133,6 +159,16 @@ public class GameController : MonoBehaviour
             AnswerButton answerButton = answerButtonGameObject.GetComponent<AnswerButton>();
             answerButton.Setup(questionData.answers[i]);
         }
+    }
+
+    IEnumerator LoadLevelAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (SceneManager.GetActiveScene().buildIndex + 1 > 2)
+        {
+            SceneManager.LoadScene("Menu");
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     //used to remove buttons
